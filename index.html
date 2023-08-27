@@ -7,9 +7,10 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        <h3 style="margin-bottom: 0;">포켓몬 슬립</h3>
-        <h1 style="margin-top: 0;"><span style="color:brown">최적 이브이 진화</span> 계산기</h1>
-
+        <div id="upperTitle">
+            <h3 style="margin: 0;">포켓몬 슬립</h3>
+            <h1 style="margin: 0;"><span style="color:brown">최적 이브이 진화</span> 계산기</h1>
+        </div>
         <div class="allImageBox">
             <img src="eevelutionArt/eevee.png" class="eevelutionAll" id="eevee"/>
                 <img src="eevelutionArt/espeon.png" class="eevelutionAll" id="espeon"/>
@@ -21,8 +22,10 @@
                 <img src="eevelutionArt/sylveon.png" class="eevelutionAll" id="sylveon"/>
                 <img src="eevelutionArt/vaporeon.png" class="eevelutionAll" id="vaporeon"/>
         </div>
-        <button type="button" id="enterButton" >시작하기</button>
-        <span id="calcVer"></span>
+        <div id="upperTitle">
+            <button type="button" class="enterButton" onclick="location.href='calculator.html'"><strong>시작하기</strong></button>
+            <div id="calcVer"></div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

@@ -1,3 +1,5 @@
+body {margin: 0;}
+#upperTitle {background-color: #e1e8db;}
 #flex-container {display: flex;}
 #chooseVer {background-color: antiquewhite;}
 #userInput {background-color: bisque;}
@@ -26,7 +28,18 @@
     animation: gla 15s infinite linear;}
 #sylveon {border: 5px solid #ffaec0;
     animation: syl 15s infinite linear;}
-#enterButtom {display: block;}
+.enterButton {padding: 14px 40px;
+            border-radius: 8px;
+            background-color: #edf2f2;
+            border: 2px solid #b8cccb;
+            transition-duration: 0.4s;
+            margin-left: 70%;}
+.enterButton:hover {background-color: #b8cccb;}
+#calcVer {margin-left: 70%;
+            font-size: 17px;}
+.middleImage {display: block;
+                margin-left: auto;
+                margin-right: auto;}
 @media (min-width: 200px) and (max-width: 768px){
       body {width: auto;
             font-size: 4vw;}
@@ -36,92 +49,94 @@
       .eevelutionAll {width: 25vw;
                         height: 25vw;}
       .explain {font-size: 3vw;}
+      .inputButton {padding: 1.2vw 3vw;
+                    border-radius: 8px;}
       @keyframes umb {
         0% {
             transform: rotate(0deg) 
-                translateX(32vw) rotate(0deg);
+                translateX(34vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(32vw) rotate(360deg);
+                translateX(34vw) rotate(360deg);
         }
     }
     @keyframes lea {
         0% {
             transform: rotate(0deg) 
-                translateY(32vw) rotate(0deg);
+                translateY(34vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateY(32vw) rotate(360deg);
+                translateY(34vw) rotate(360deg);
         }
     }
     @keyframes vap {
         0% {
             transform: rotate(0deg) 
-                translateX(-32vw) rotate(0deg);
+                translateX(-34vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(-32vw) rotate(360deg);
+                translateX(-34vw) rotate(360deg);
         }
     }
     @keyframes jol {
         0% {
             transform: rotate(0deg) 
-                translateY(-32vw) rotate(0deg);
+                translateY(-34vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateY(-32vw) rotate(360deg);
+                translateY(-34vw) rotate(360deg);
         }
     }
     @keyframes gla {
         0% {
             transform: rotate(0deg) 
-                translateX(22.62vw) translateY(22.62vw) rotate(0deg);
+                translateX(24.04vw) translateY(24.04vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(22.62vw) translateY(22.62vw) rotate(360deg);
+                translateX(24.04vw) translateY(24.04vw) rotate(360deg);
         }
     }
     @keyframes esp {
         0% {
             transform: rotate(0deg) 
-                translateX(22.62vw) translateY(-22.62vw) rotate(0deg);
+                translateX(24.04vw) translateY(-24.04vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(22.62vw) translateY(-22.62vw) rotate(360deg);
+                translateX(24.04vw) translateY(-24.04vw) rotate(360deg);
         }
     }
     @keyframes syl {
         0% {
             transform: rotate(0deg) 
-                translateX(-22.62vw) translateY(22.62vw) rotate(0deg);
+                translateX(-24.04vw) translateY(24.04vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(-22.62vw) translateY(22.62vw) rotate(360deg);
+                translateX(-24.04vw) translateY(24.04vw) rotate(360deg);
         }
     }
     @keyframes fla {
         0% {
             transform: rotate(0deg) 
-                translateX(-22.62vw) translateY(-22.62vw) rotate(0deg);
+                translateX(-24.04vw) translateY(-24.04vw) rotate(0deg);
         }
     
         100% {
             transform: rotate(-360deg) 
-                translateX(-22.62vw) translateY(-22.62vw) rotate(360deg);
+                translateX(-24.04vw) translateY(-24.04vw) rotate(360deg);
         }
     }
 }
@@ -130,6 +145,7 @@
             width: 750px;}
     .allImageBox {height: 640px;}
     #flex-container {flex-direction: row;}
+    .inputButton {border-radius: 8px;}
     @keyframes umb {
         0% {
             transform: rotate(0deg) 
