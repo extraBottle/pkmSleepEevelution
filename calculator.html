@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>최적 이브이 진화 계산기</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <h1>포켓몬 슬립 <span style="color:brown">최적 이브이 진화</span> 계산기</h1>
+        <form>
+        <fieldset id= "userInput">
+            <legend><strong>평가를 원하는 이브이의 정보를 입력하세요:</strong></legend>
+            <p><div id="flex-container">
+                <label>현재 레벨:
+                    <input id="currentLevel" name="currentLevel" type= "number" min = "1" max = "100" step = "1" value = "1" autofocus>
+                </label><div class="explain">(1부터 100사이 숫자를 입력하세요)</div>
+            </div></p>
+            <p><div class="proCalc" id="flex-container">
+                <label>성격으로 <span style="color: red;">상승하는</span> 능력치:
+                    <select name="natureUp" id="natureUp">
+                        <option selected>영향 없음</option>
+                        <option>도우미 스피드+</option>
+                        <option>기력 회복량+</option>
+                        <option>식재료 도우미 확률+</option>
+                        <option>메인 스킬 발동률+</option>
+                        <option>EXP 획득량+</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>성격으로 <span style="color: blue;">하락하는</span> 능력치:
+                    <select name="natureDown" id="natureDown">
+                        <option selected>영향 없음</option>
+                        <option>도우미 스피드 -</option>
+                        <option>기력 회복량 -</option>
+                        <option>식재료 도우미 확률 -</option>
+                        <option>메인 스킬 발동률 -</option>
+                        <option>EXP 획득량 -</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>레벨 10 서브 스킬:
+                    <select name="sub10" id="sub10">
+                        <option selected>(금색)나무열매 수 S</option>
+                        <option>(금색)도우미 보너스</option>
+                        <option>(금색)수면 EXP 보너스</option>
+                        <option>(금색)기력 회복 보너스</option>
+                        <option>(금색)리서치 EXP 보너스</option>
+                        <option>(금색)꿈의조각 보너스</option>
+                        <option>(금색)스킬 레벨 업 M</option>
+                        <option>(은색)도우미 스피드 M</option>
+                        <option>(은색)식재료 확률 업 M</option>
+                        <option>(은색)최대 소지 수 업 L</option>
+                        <option>(은색)최대 소지 수 업 M</option>
+                        <option>(은색)스킬 레벨 업 S</option>
+                        <option>(은색)스킬 확률 업 M</option>
+                        <option>도우미 스피드 S</option>
+                        <option>식재료 확률 업 S</option>
+                        <option>최대 소지 수 업 S</option>
+                        <option>스킬 확률 업 S</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>레벨 25 서브 스킬:
+                    <select name="sub10" id="sub10">
+                        <option>(금색)나무열매 수 S</option>
+                        <option selected>(금색)도우미 보너스</option>
+                        <option>(금색)수면 EXP 보너스</option>
+                        <option>(금색)기력 회복 보너스</option>
+                        <option>(금색)리서치 EXP 보너스</option>
+                        <option>(금색)꿈의조각 보너스</option>
+                        <option>(금색)스킬 레벨 업 M</option>
+                        <option>(은색)도우미 스피드 M</option>
+                        <option>(은색)식재료 확률 업 M</option>
+                        <option>(은색)최대 소지 수 업 L</option>
+                        <option>(은색)최대 소지 수 업 M</option>
+                        <option>(은색)스킬 레벨 업 S</option>
+                        <option>(은색)스킬 확률 업 M</option>
+                        <option>도우미 스피드 S</option>
+                        <option>식재료 확률 업 S</option>
+                        <option>최대 소지 수 업 S</option>
+                        <option>스킬 확률 업 S</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>레벨 50 서브 스킬:
+                    <select name="sub10" id="sub10">
+                        <option>(금색)나무열매 수 S</option>
+                        <option>(금색)도우미 보너스</option>
+                        <option selected>(금색)수면 EXP 보너스</option>
+                        <option>(금색)기력 회복 보너스</option>
+                        <option>(금색)리서치 EXP 보너스</option>
+                        <option>(금색)꿈의조각 보너스</option>
+                        <option>(금색)스킬 레벨 업 M</option>
+                        <option>(은색)도우미 스피드 M</option>
+                        <option>(은색)식재료 확률 업 M</option>
+                        <option>(은색)최대 소지 수 업 L</option>
+                        <option>(은색)최대 소지 수 업 M</option>
+                        <option>(은색)스킬 레벨 업 S</option>
+                        <option>(은색)스킬 확률 업 M</option>
+                        <option>도우미 스피드 S</option>
+                        <option>식재료 확률 업 S</option>
+                        <option>최대 소지 수 업 S</option>
+                        <option>스킬 확률 업 S</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>레벨 75 서브 스킬:
+                    <select name="sub10" id="sub10">
+                        <option>(금색)나무열매 수 S</option>
+                        <option>(금색)도우미 보너스</option>
+                        <option>(금색)수면 EXP 보너스</option>
+                        <option selected>(금색)기력 회복 보너스</option>
+                        <option>(금색)리서치 EXP 보너스</option>
+                        <option>(금색)꿈의조각 보너스</option>
+                        <option>(금색)스킬 레벨 업 M</option>
+                        <option>(은색)도우미 스피드 M</option>
+                        <option>(은색)식재료 확률 업 M</option>
+                        <option>(은색)최대 소지 수 업 L</option>
+                        <option>(은색)최대 소지 수 업 M</option>
+                        <option>(은색)스킬 레벨 업 S</option>
+                        <option>(은색)스킬 확률 업 M</option>
+                        <option>도우미 스피드 S</option>
+                        <option>식재료 확률 업 S</option>
+                        <option>최대 소지 수 업 S</option>
+                        <option>스킬 확률 업 S</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>레벨 100 서브 스킬:
+                    <select name="sub10" id="sub10">
+                        <option>(금색)나무열매 수 S</option>
+                        <option>(금색)도우미 보너스</option>
+                        <option>(금색)수면 EXP 보너스</option>
+                        <option>(금색)기력 회복 보너스</option>
+                        <option selected>(금색)리서치 EXP 보너스</option>
+                        <option>(금색)꿈의조각 보너스</option>
+                        <option>(금색)스킬 레벨 업 M</option>
+                        <option>(은색)도우미 스피드 M</option>
+                        <option>(은색)식재료 확률 업 M</option>
+                        <option>(은색)최대 소지 수 업 L</option>
+                        <option>(은색)최대 소지 수 업 M</option>
+                        <option>(은색)스킬 레벨 업 S</option>
+                        <option>(은색)스킬 확률 업 M</option>
+                        <option>도우미 스피드 S</option>
+                        <option>식재료 확률 업 S</option>
+                        <option>최대 소지 수 업 S</option>
+                        <option>스킬 확률 업 S</option>
+                    </select>
+                </label>
+            </div></p>
+            <p><div id="flex-container">
+                <label>원하는 이브이 진화체가 있으신가요?:
+                    <select name="eeveePrefer" id="eeveePrefer">
+                        <option selected>없음</option>
+                        <option>샤미드</option>
+                        <option>쥬피썬더</option>
+                        <option>부스터</option>
+                        <option>에브이</option>
+                        <option>블래키</option>
+                        <option>리피아</option>
+                        <option>글레이시아</option>
+                        <option>님피아</option>
+                    </select>
+                </label><div class="explain">(최적의 성능을 원하면 선택하지 마세요.)</div>
+            </div></p>
+            <button type="button" id="calcButton" onclick="calculator()">계산하기</button>
+        </fieldset>
+        </form>
+        <br><br>
+        <fieldset id= "resultOutput" style="visibility: hidden;">
+            <legend><strong>계산 결과:</strong></legend>
+            <p>목표 레벨까지 필요한</p>
+            <p>
+                <label><img src="growthincense.png" height="30"/>경험치량:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="resultExp" type= "number" min= "1" max = "9999999" value= "0" readonly>
+                </label> 
+            </p>
+            <p>
+                <label><img src="pikachucandy.png" height="30"/>사탕 개수:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="resultCandy" type= "number" min= "1" max = "9999999" value= "0" readonly>
+                </label> 
+            </p>
+            <p>
+                <label><img src="dreamshard.png" height="30"/>꿈의 조각 개수:
+                    <input id="resultShard" type= "number" min= "1" max = "9999999" value= "0" readonly>
+                </label> 
+            </p>
+        </fieldset>
+        <p><h5>"강한 포켓몬, 약한 포켓몬<br>그런건 사람이 멋대로 정하는 것.<br>정말 강한 트레이너라면 좋아하는 포켓몬으로 이길 수 있도록 열심히 해야 해."<br><br>-악타입 사천왕 카렌</h5></p>
+        <span id="calcVer"></span>
+        <script src="script.js"></script>
+    </body>
+</html>
