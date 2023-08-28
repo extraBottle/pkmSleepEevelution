@@ -159,8 +159,8 @@
                     </select>
                 </label>
             </div></p>
-            <div id="flex-container">
-                <label>원하는 이브이 진화체가 있으신가요?:
+            <p><div id="flex-container">
+                <label>원하는 이브이 진화체:
                     <select name="eeveePrefer" class="inputButton" id="eeveePrefer">
                         <option selected>없음</option>
                         <option>샤미드</option>
@@ -173,12 +173,22 @@
                         <option>님피아</option>
                     </select>
                 </label><div class="explain">(최적의 성능을 원하면 선택하지 마세요)</div>
+            </div></p>
+            <div id="flex-container">
+                <label>나는 하루에 잠을 8시간 이상:
+                    <select name="sleepWell" class="inputButton" id="sleepWell">
+                        <option selected>잔다</option>
+                        <option>안잔다</option>
+                    </select>
+                </label><div class="explain">(수면이 부족하면 기력 회복량 가산점)</div>
             </div>
         </fieldset>
-        <button type="button" class="enterButton" id="calcButton"><strong>계산하기</strong></button>
         </form>
-        <h5 class="explain" style="margin-bottom: 0;">"강한 포켓몬, 약한 포켓몬<br>그런건 사람이 멋대로 정하는 것.<br>정말 강한 트레이너라면 좋아하는 포켓몬으로 이길 수 있도록 열심히 해야 해."<br><br>-카렌</h5>
-        <div id="upperTitle"><span id="calcVer"></span>
+        <fieldset id="resultOutput">
+            <legend><strong>당신의 이브이에게 추천하는 진화는...</strong></legend>
+        </fieldset>
+        <div id="upperTitle">
+            <button type="button" class="enterButton" id="calcButton" onclick="eevaluate()"><strong>계산하기</strong></button>
         </div>
         <script src="script.js"></script>
     </body>

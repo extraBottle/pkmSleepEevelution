@@ -1,9 +1,10 @@
 body {margin: 0;}
-#upperTitle {background-color: #e1e8db;}
 #flex-container {display: flex;}
+#upperTitle {background-color: #e1e8db;}
 #chooseVer {background-color: antiquewhite;}
 #userInput {background-color: bisque;}
-#resultOutput {background-color: thistle;}
+#resultOutput {background-color: thistle;
+                display: none;}
 .allImageBox {position: relative;}
 .eevelutionAll {border-radius: 50%;
                 display: block;
@@ -34,24 +35,26 @@ body {margin: 0;}
             border: 2px solid #b8cccb;
             transition-duration: 0.4s;
             margin-left: 60%;}
+.fixedButton {position: fixed;
+                bottom: 0;}
 .enterButton:hover {background-color: #b8cccb;}
-#calcVer {margin-left: 70%;
-            font-size: 17px;}
+#calcVer {font-size: 15px;}
 .middleImage {display: block;
                 margin-left: auto;
                 margin-right: auto;}
 @media (min-width: 200px) and (max-width: 768px){
-      body {width: auto;
+    body {width: auto;
             font-size: 4vw;}
-      .allImageBox {height: 0;
+    .allImageBox {height: 0;
                     padding-bottom: 100%;}
-      #flex-container {flex-direction: column;}
-      .eevelutionAll {width: 25vw;
+    #flex-container {flex-direction: column;}
+    .eevelutionAll {width: 25vw;
                         height: 25vw;}
-      .explain {font-size: 3vw;}
-      .inputButton {padding: 1.2vw 3vw;
+    .inputButton {padding: 1.2vw 3vw;
                     border-radius: 8px;}
-      @keyframes umb {
+    .fixedButton {width: 100%;}
+    .explain {font-size: 3vw;}
+    @keyframes umb {
         0% {
             transform: rotate(0deg) 
                 translateX(34vw) rotate(0deg);
@@ -141,11 +144,12 @@ body {margin: 0;}
     }
 }
 @media (min-width: 768px){
-      body {padding-left: 5%;
+    body {padding-left: 5%;
             width: 750px;}
     .allImageBox {height: 640px;}
     #flex-container {flex-direction: row;}
     .inputButton {border-radius: 8px;}
+    .fixedButton {width: 750px;}
     @keyframes umb {
         0% {
             transform: rotate(0deg) 
