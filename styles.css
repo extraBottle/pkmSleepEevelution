@@ -1,4 +1,5 @@
-body {margin: 0;}
+body {margin: 0;
+    height: 100%;}
 #flex-container {display: flex;}
 #upperTitle {background-color: #e1e8db;}
 #chooseVer {background-color: antiquewhite;}
@@ -143,7 +144,7 @@ body {margin: 0;}
         }
     }
 }
-@media (min-width: 768px){
+@media (min-width: 769px){
     body {padding-left: 5%;
             width: 750px;}
     .allImageBox {height: 640px;}
