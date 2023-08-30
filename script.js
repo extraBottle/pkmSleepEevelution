@@ -202,7 +202,7 @@ async function eevaluate() {
         //상당히 하드코딩이라 티어표 변동되면 이것도 꼭 변경해야함! 주의
         for(const key of tierList){
             let mm10, mm25, mm50, mm75, mm100;
-            mm10 = jjson[key]["tier1"][0]; 
+            mm10 = json[key]["tier1"][0]; 
             mm25 = json[key]["tier1"][1];
             mm50 = json[key]["tier2"][0];
             mm75 = json[key]["tier2"][1];
