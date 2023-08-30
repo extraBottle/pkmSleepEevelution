@@ -186,18 +186,25 @@
         </form>
         <fieldset id="resultOutput">
             <legend><strong>당신의 이브이에게 추천하는 진화는...</strong></legend>
-            <p>님피아: <span id="slyveonFinal"></span></p>
-            <p>에브이: <span id="espeonFinal"></span></p>
-            <p>블래키: <span id="umbreonFinal"></span></p>
-            <p>쥬피썬더: <span id="jolteonFinal"></span></p>
-            <p>샤미드: <span id="vaporeonFinal"></span></p>
-            <p>블래키(식재료형): <span id="ingUmbreonFinal"></span></p>
-            <p>쥬피썬더(식재료형): <span id="ingJolteonFinal"></span></p>
-            <p>샤미드(식재료형): <span id="ingVaporeonFinal"></span></p>
+            <span id="realFinalImage"></span>
+            <div style="text-align: center;"><h1 id="realFinalName" style="display: inline;"></h1>&nbsp;입니다.</div>
+            <h1 id="realFinalScore"></h1>
+            <fieldset id="resultComment">
+                <legend><strong>코멘트:</strong></legend>
+                <p id="realFinalComment"></p>
+            </fieldset>
+            <br>
+            <fieldset id="resultGuide">
+                <legend><strong>평가 중점사항:</strong></legend>
+                <p id="realFinalGuide"></p>
+            </fieldset>
         </fieldset>
         <div id="upperTitle">
             <button type="button" class="enterButton" id="calcButton" onclick="eevaluate()"><strong>계산하기</strong></button>
         </div>
-        <script src="script.js"></script>
+        <div class="fixedButton">
+            <button type="button" class="enterButton" id="retryButton" onclick="retry()"><strong>다시 계산하기</strong></button>
+        </div>
+        <script src="testScript.js"></script>
     </body>
 </html>

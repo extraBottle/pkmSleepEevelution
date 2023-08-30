@@ -6,6 +6,11 @@ body {margin: 0;
 #userInput {background-color: bisque;}
 #resultOutput {background-color: thistle;
                 display: none;}
+#resultComment {background-color: #fbe4f2;
+                border-radius: 2vw;}
+#resultGuide {background-color:rgb(240, 219, 246);
+                border-radius: 2vw;}
+#retryButton {display: none;}
 .allImageBox {position: relative;}
 .eevelutionAll {border-radius: 50%;
                 display: block;
@@ -50,7 +55,7 @@ body {margin: 0;
                     padding-bottom: 100%;}
     #flex-container {flex-direction: column;}
     .eevelutionAll {width: 25vw;
-                        height: 25vw;}
+                        height: auto;}
     .inputButton {padding: 1.2vw 3vw;
                     border-radius: 8px;}
     .fixedButton {width: 100%;}
