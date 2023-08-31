@@ -190,6 +190,9 @@ async function eevaluate() {
                     allGrade[tierList.indexOf("umbreon")]["umbreon"] += 2;
                 }else if(downNature === "기력 회복량 -"){
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 1.5;
+                    allGrade[tierList.indexOf("espeon")]["espeon"] += 1;
+                    allGrade[tierList.indexOf("jolteon")]["jolteon"] += 1;
+                    allGrade[tierList.indexOf("vaporeon")]["vaporeon"] += 1;
                 }else if((downNature === "식재료 도우미 확률 -") || (downNature === "EXP 획득량 -")){
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 1.5;
                     allGrade[tierList.indexOf("espeon")]["espeon"] += 1.5;
