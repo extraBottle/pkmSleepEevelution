@@ -90,7 +90,7 @@ async function eevaluate() {
 
         const originInput= [subSkill_10, subSkill_25, subSkill_50, subSkill_75, subSkill_100];
         const checkInputValid= new Set([subSkill_10, subSkill_25, subSkill_50, subSkill_75, subSkill_100]);
-        if(originInput.indexOf("--선택하세요--") === -1){
+        if(originInput.indexOf("--선택하세요--") !== -1){
             alert("이브이가 보유한 서브 스킬을 전부 입력해주세요.");
             return;
         }
