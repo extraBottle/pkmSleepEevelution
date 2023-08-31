@@ -80,6 +80,8 @@ body {margin: 0;
                         height: auto;}
     .inputButton {padding: 1.2vw 3vw;
                     border-radius: 8px;}
+    .subInputButton {padding: 1.2vw 3vw;
+        border-radius: 8px;}
     #retryButton.enterButton {margin-right: auto;}
     .fixedButton {width: 100%;}
     .explain {font-size: 3vw;}
@@ -180,6 +182,7 @@ body {margin: 0;
     #flex-container {flex-direction: row;}
     .boxForScore {text-align: center;}
     .inputButton {border-radius: 8px;}
+    .subInputButton {border-radius: 8px;}
     .fixedButton {width: 750px;}
     #retryButton.enterButton {margin-left: 500px;}
     @keyframes umb {

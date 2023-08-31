@@ -1,3 +1,61 @@
+
+document.querySelectorAll(".subInputButton").forEach(s => {
+    s.addEventListener('input', () => {
+        if(s.value.slice(0, 4) === "(금색)"){
+            s.style.backgroundColor= "#fee672";
+            s.style.borderColor = '#f3af2b';
+            s.style.borderWidth = '2px';
+            s.style.borderStyle = 'solid';
+        }else if(s.value.slice(0, 4) === "(청색)"){
+            s.style.backgroundColor= "#d9eeff";
+            s.style.borderColor = '#6ab1f5';
+            s.style.borderWidth = '2px';
+            s.style.borderStyle = 'solid';
+        }else if(s.value === "--선택하세요--"){
+            s.style.backgroundColor = '';
+            s.style.borderColor = '';
+            s.style.borderWidth = '';
+            s.style.borderStyle = '';
+        }else{
+            s.style.backgroundColor= "#f9f9f9";
+            s.style.borderColor = '#dfdede';
+            s.style.borderWidth = '2px';
+            s.style.borderStyle = 'solid';
+        };
+    });
+});
+let ha= document.getElementById("eeveePrefer");
+ha.addEventListener("input", () => {
+    if(ha.value === "샤미드"){
+        ha.style.backgroundColor= '#9cd4ea';
+        ha.style.color= '';
+    }else if(ha.value === "쥬피썬더"){
+        ha.style.backgroundColor= '#fef06d';
+        ha.style.color= '';
+    }else if(ha.value === "부스터"){
+        ha.style.backgroundColor= '#f49e63';
+        ha.style.color= '';
+    }else if(ha.value === "에브이"){
+        ha.style.backgroundColor= '#fbe4f2';
+        ha.style.color= '';
+    }else if(ha.value === "블래키"){
+        ha.style.backgroundColor= '#5e6b6c';
+        ha.style.color= 'white';
+    }else if(ha.value === "리피아"){
+        ha.style.backgroundColor= '#7fdc9e';
+        ha.style.color= '';
+    }else if(ha.value === "글레이시아"){
+        ha.style.backgroundColor= '#65c4dc';
+        ha.style.color= '';
+    }else if(ha.value === "님피아"){
+        ha.style.backgroundColor= '#ffaec0';
+        ha.style.color= '';
+    }else{
+        ha.style.backgroundColor= '';
+        ha.style.color= '';
+    }
+});
+
 function retry(){
     document.getElementById("resultOutput").style.display= "none";
     document.getElementById("userInput").style.display= "block";
@@ -18,12 +76,6 @@ let checkIfIng;
 
 async function eevaluate() {
     try{
-        //결과화면으로 전환
-        document.getElementById("userInput").style.display= "none";
-        document.getElementById("resultOutput").style.display= "block";
-        document.getElementById("retryButton").style.display= "block";
-        document.getElementById("calcButton").style.display= "none";
-
         //let eevLevel= parseInt(document.getElementById("currentLevel").value);
         let upNature= document.getElementById("natureUp").value;
         let downNature= document.getElementById("natureDown").value;
@@ -36,6 +88,16 @@ async function eevaluate() {
         let howSleep= document.getElementById("sleepWell").value;
         //유저 정보 가져오기
 
+        const originInput= [subSkill_10, subSkill_25, subSkill_50, subSkill_75, subSkill_100];
+        const checkInputValid= new Set([subSkill_10, subSkill_25, subSkill_50, subSkill_75, subSkill_100]);
+        if(originInput.indexOf("--선택하세요--") === -1){
+            alert("이브이가 보유한 서브 스킬을 전부 입력해주세요.");
+            return;
+        }
+        if(originInput.length !== checkInputValid.size){
+            alert("서브 스킬은 중복될 수 없습니다. 제대로 입력했는지 다시 확인해주세요.");
+            return;
+        };
         checkIfIng= undefined;
 
         const goldSub= ["(금색)수면 EXP 보너스", "(금색)기력 회복 보너스", "(금색)리서치 EXP 보너스", "(금색)꿈의조각 보너스"];
@@ -63,6 +125,10 @@ async function eevaluate() {
                 allAddGrade(-1);
             };
             if(upNature === "도우미 스피드+"){
+                if(upNature === "영향 없음" || downNature === "영향 없음"){
+                    alert("성격을 제대로 입력했는지 다시 확인해주세요.");
+                    return;
+                }
                 if(downNature === "기력 회복량 -"){
                     allGrade[tierList.indexOf("umbreon")]["umbreon"] += 2;
                 }else if(downNature === "식재료 도우미 확률 -"){
@@ -135,6 +201,12 @@ async function eevaluate() {
             };
         };
 
+        //입력 데이터 유효성 확인 후 결과화면으로 전환
+        document.getElementById("userInput").style.display= "none";
+        document.getElementById("resultOutput").style.display= "block";
+        document.getElementById("retryButton").style.display= "block";
+        document.getElementById("calcButton").style.display= "none";
+
         //레벨 별 서브스킬 가산점 
         const sub25Bonus= 2;
         const sub50Bonus= 1;
@@ -188,14 +260,14 @@ async function eevaluate() {
         };
 
         //합격 커트라인 계산
-        const sylveonCut= calcScore("sylveon", "(은색)스킬 확률 업 M", "blank", "식재료 확률 업 S");
+        const sylveonCut= calcScore("sylveon", "(청색)스킬 확률 업 M", "blank", "식재료 확률 업 S");
         const espeonCut= 1.5 + calcScore("espeon", "스킬 확률 업 S", "도우미 스피드 S");
-        const umbreonCut= 1 + calcScore("umbreon", "(은색)스킬 확률 업 M", "(금색)리서치 EXP 보너스");
-        const jolteonCut= 1 + calcScore("jolteon", "스킬 확률 업 S", "(은색)스킬 레벨 업 S");
-        const vaporeonCut= 1 + calcScore("vaporeon", "(금색)스킬 레벨 업 M", "(은색)스킬 레벨 업 S");
-        const ingUmbreonCut= 1+ calcScore("ingUmbreon", "(은색)식재료 확률 업 M", "도우미 스피드 S", "(은색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
-        const ingJolteonCut= 1+ calcScore("ingJolteon", "(은색)식재료 확률 업 M", "도우미 스피드 S", "(은색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
-        const ingVaporeonCut= 1+ calcScore("ingVaporeon", "(은색)식재료 확률 업 M", "도우미 스피드 S", "(은색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const umbreonCut= 1 + calcScore("umbreon", "(청색)스킬 확률 업 M", "(금색)리서치 EXP 보너스");
+        const jolteonCut= 1 + calcScore("jolteon", "스킬 확률 업 S", "(청색)스킬 레벨 업 S");
+        const vaporeonCut= 1 + calcScore("vaporeon", "(금색)스킬 레벨 업 M", "(청색)스킬 레벨 업 S");
+        const ingUmbreonCut= 1+ calcScore("ingUmbreon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const ingJolteonCut= 1+ calcScore("ingJolteon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const ingVaporeonCut= 1+ calcScore("ingVaporeon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
         
         //커트라인, 최소최대 점수 저장용
         eeveeFilter= {
