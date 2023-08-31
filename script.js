@@ -15,6 +15,7 @@ const preferList= ["글레이시아", "부스터", "리피아"];
 //글&부 선호하는데 식재료형이 후보로 선택되었을 때 처리용
 let checkIfIng;
 
+
 async function eevaluate() {
     try{
         //결과화면으로 전환
@@ -244,7 +245,6 @@ async function eevaluate() {
         eeveeFilter["jolteon"]["max"] += 2.5;
         eeveeFilter["vaporeon"]["max"] += 2.5;
         eeveeFilter["umbreon"]["max"] += 2.5;
-        eeveeFilter["ingJolteon"]["max"] += 2;
         eeveeFilter["ingJolteon"]["max"] += 1;
         eeveeFilter["ingVaporeon"]["max"] += 1;
         eeveeFilter["ingUmbreon"]["max"] += 1;
@@ -254,7 +254,6 @@ async function eevaluate() {
         eeveeFilter["jolteon"]["min"] -= 2;
         eeveeFilter["vaporeon"]["min"] -= 2;
         eeveeFilter["umbreon"]["min"] -= 2;
-        eeveeFilter["ingJolteon"]["min"] -= 1;
         eeveeFilter["ingJolteon"]["min"] -= 1;
         eeveeFilter["ingVaporeon"]["min"] -= 1;
         eeveeFilter["ingUmbreon"]["min"] -= 1;
@@ -318,7 +317,7 @@ async function eevaluate() {
                     }else{
                         //선호하는 진화가 글&부 중에 하나
                         let findSubstitute= tierList.slice(2, 4);
-                        findSubstitute.push(tierList.slice(5, 7));
+                        findSubstitute.push(...tierList.slice(5, 7));
                         for(const z of findSubstitute){
                             if(finalList.indexOf(z) !== -1){
                                 //블&주&샤가 후보에 있으면 동일한 평가로 1순위에 선호 이브이를 추가
@@ -326,9 +325,9 @@ async function eevaluate() {
                                 eeveeFilter[tierList[korName.indexOf(eeveeLike)]]= eeveeFilter[z];
                                 if(z.slice(0, 3) === "ing"){
                                     checkIfIng= korName[tierList.indexOf(finalList[0])] + "(식재료형)";
-                                }
+                                };
+                                break;
                             };
-                            break;
                         }
                     }
                 };
@@ -344,9 +343,9 @@ async function eevaluate() {
                 "jolteon": "포켓몬 슬립 내에서 라이츄, 팬텀과 더불어 제일 빠른 도우미 속도를 보유한 포켓몬입니다. 그렇기에 스킬을 배제해도 자체 스펙이 매우 뛰어납니다. 쥬피썬더는 동료 포켓몬이 일정 횟수 즉시 도움을 발동하는 스킬을 보유했는데, 이는 동료 포켓몬의 성능에 따라 편차가 큽니다. 따라서 단독으로도 고성능을 내는 에브이에 밀리는 것이 사실입니다. 하지만 게임 후반으로 갈수록, 팀 포켓몬의 성능이 좋아질수록 에브이를 능가할 잠재능력은 충분한 포켓몬입니다.",
                 "vaporeon":"무작위 종류의 식재료를 최대 21개까지 주는 '식재료 획득 S'스킬을 보유한 포켓몬입니다. 스킬 자체의 성능은 매우 우수하기에 동일한 스킬을 보유한 비스킬형 포켓몬들도 웬만하면 메인 스킬 발동 확률 감소는 피하는 편입니다. 하지만 랜덤이기에 안정적인 식재료 수급은 어렵고, 느린 도우미 속도가 아쉽습니다.",
                 "umbreon": "상당히 흥미로운 구조를 지닌 포켓몬입니다. 자체 기력을 회복시키는 스킬은 사실 특출난 점이 없습니다만, 반대로 보면 자체적으로 기력 관리가 용이해서 안정적인 도움이 가능합니다. 또한 스킬이 적은 투자로도 높은 효율을 보이기에 스킬형 포켓몬이지만 스킬에 집중하지 않고 다른 능력에 투자할 수 있다는 장점이 있습니다. 느린 도우미 속도가 아쉽지만, 높은 기력 유지력으로 실질적인 도우미 속도는 훨씬 빠르기에 큰 문제가 되지는 않습니다.",
-                "ingJolteon": "(객관적으로 보면 식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.) 포켓몬 슬립 내에서 라이츄, 팬텀과 더불어 제일 빠른 도우미 속도를 보유한 포켓몬입니다. 그렇기에 스킬을 배제해도 자체 스펙이 매우 뛰어납니다. 쥬피썬더는 동료 포켓몬이 일정 횟수 즉시 도움을 발동하는 스킬을 보유했는데, 이는 동료 포켓몬의 성능에 따라 편차가 큽니다. 따라서 단독으로도 고성능을 내는 에브이에 밀리는 것이 사실입니다. 하지만 게임 후반으로 갈수록, 팀 포켓몬의 성능이 좋아질수록 에브이를 능가할 잠재능력은 충분한 포켓몬입니다.",
-                "ingVaporeon":"(객관적으로 보면 식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.) 무작위 종류의 식재료를 최대 21개까지 주는 '식재료 획득 S'스킬을 보유한 포켓몬입니다. 스킬 자체의 성능은 매우 우수하기에 동일한 스킬을 보유한 비스킬형 포켓몬들도 웬만하면 메인 스킬 발동 확률 감소는 피하는 편입니다. 하지만 랜덤이기에 안정적인 식재료 수급은 어렵고, 느린 도우미 속도가 아쉽습니다.",
-                "ingUmbreon": "(객관적으로 보면 식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.) 상당히 흥미로운 구조를 지닌 포켓몬입니다. 자체 기력을 회복시키는 스킬은 사실 특출난 점이 없습니다만, 반대로 보면 자체적으로 기력 관리가 용이해서 안정적인 도움이 가능합니다. 또한 스킬이 적은 투자로도 높은 효율을 보이기에 스킬형 포켓몬이지만 스킬에 집중하지 않고 다른 능력에 투자할 수 있다는 장점이 있습니다. 느린 도우미 속도가 아쉽지만, 높은 기력 유지력으로 실질적인 도우미 속도는 훨씬 빠르기에 큰 문제가 되지는 않습니다.",
+                "ingJolteon": "(식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.)<br><br>포켓몬 슬립 내에서 라이츄, 팬텀과 더불어 제일 빠른 도우미 속도를 보유한 포켓몬입니다. 그렇기에 스킬을 배제해도 자체 스펙이 매우 뛰어납니다. 쥬피썬더는 동료 포켓몬이 일정 횟수 즉시 도움을 발동하는 스킬을 보유했는데, 이는 동료 포켓몬의 성능에 따라 편차가 큽니다. 따라서 단독으로도 고성능을 내는 에브이에 밀리는 것이 사실입니다. 하지만 게임 후반으로 갈수록, 팀 포켓몬의 성능이 좋아질수록 에브이를 능가할 잠재능력은 충분한 포켓몬입니다.",
+                "ingVaporeon":"(식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.)<br><br>무작위 종류의 식재료를 최대 21개까지 주는 '식재료 획득 S'스킬을 보유한 포켓몬입니다. 스킬 자체의 성능은 매우 우수하기에 동일한 스킬을 보유한 비스킬형 포켓몬들도 웬만하면 메인 스킬 발동 확률 감소는 피하는 편입니다. 하지만 랜덤이기에 안정적인 식재료 수급은 어렵고, 느린 도우미 속도가 아쉽습니다.",
+                "ingUmbreon": "(식재료형이 일반적인 이브이에 비해서 성능이 떨어지는 것은 사실이나, 이렇게 식재료 관련 능력이 많이 붙으면 그냥 식재료형으로 쓰라는 운명일지도 모릅니다.)<br><br>상당히 흥미로운 구조를 지닌 포켓몬입니다. 자체 기력을 회복시키는 스킬은 사실 특출난 점이 없습니다만, 반대로 보면 자체적으로 기력 관리가 용이해서 안정적인 도움이 가능합니다. 또한 스킬이 적은 투자로도 높은 효율을 보이기에 스킬형 포켓몬이지만 스킬에 집중하지 않고 다른 능력에 투자할 수 있다는 장점이 있습니다. 느린 도우미 속도가 아쉽지만, 높은 기력 유지력으로 실질적인 도우미 속도는 훨씬 빠르기에 큰 문제가 되지는 않습니다.",
                 "glaceon": "요리에 필요한 냄비 용량을 늘리는 독특한 스킬을 보유한 포켓몬입니다. 사실 자체적으로 잠만보 에너지에 기여하는 능력이 없고, 동료 포켓몬이 모은 식재료를 사용할 수 있게 해주는 능력이라 아직은 평가가 그리 좋지 않은 포켓몬입니다. 하지만 게임 후반에 동료 포켓몬이 생성하는 식재료 개수가 크게 증가하면 평가가 좋아질 가능성은 충분히 있습니다.",
                 "flareon": "요리에 필요한 냄비 용량을 늘리는 독특한 스킬을 보유한 포켓몬입니다. 사실 자체적으로 잠만보 에너지에 기여하는 능력이 없고, 동료 포켓몬이 모은 식재료를 사용할 수 있게 해주는 능력이라 아직은 평가가 그리 좋지 않은 포켓몬입니다. 하지만 게임 후반에 동료 포켓몬이 생성하는 식재료 개수가 크게 증가하면 평가가 좋아질 가능성은 충분히 있습니다.",
                 "leafeon": "포켓몬 슬립 내에서 몇 안되는 기력 서포터 포켓몬입니다. 기력은 포켓몬들의 도우미 효율과 직결되므로 그 중요성은 이루 다 말할 수 없습니다. 또한 서포터 포켓몬 특성 상 어떠한 파티에도 쉽게 어우러집니다. 하지만 무작위의 포켓몬에게 기력을 회복시켜준다는 점은 아쉽습니다."
@@ -402,8 +401,12 @@ function showMore(){
         document.getElementById("anotherButton").style.display= "none";
         let anotherResult= "";
         for(let v=1; v < finalList.length; v++){
+            let candiEevee= finalList[v];
+            if(finalList[v].slice(0, 3) === "ing"){
+                candiEevee= finalList[v].slice(3).toLowerCase();
+            };
             anotherResult += `<div id="realFinalOthers">
-            <img src="eevelutionArt/${finalList[v]}.png" class="eevelutionAll" id="${finalList[v]}"/>
+            <img src="eevelutionArt/${candiEevee}.png" class="eevelutionAll" id="${candiEevee}"/>
             <div class="otherBlank"><h2 class="otherNameBlank">${korName[tierList.indexOf(finalList[v])]}</h2>
                 적합도: <h2 style="display: inline;">${Math.floor(eeveeFilter[finalList[v]]["percent"])} %</h2>
                 <div class="explain">(최소 추천 적합도: <strong>${Math.floor(eeveeFilter[finalList[v]]["cutPercent"])} %</strong>)
