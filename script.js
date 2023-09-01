@@ -497,11 +497,13 @@ async function eevaluate() {
                                                                     </fieldset>`;
             document.getElementById("anotherButton").style.display= "block";                                                                        
         }else{
+            document.getElementById("realFinalScore").innerHTML= "";
+            document.getElementById("realFinalGuide").innerHTML= "";
             document.getElementById("realFinalImage").innerHTML= `<img class="middleImage" src="eevelutionArt/noResult.png"/>`;
             document.getElementById("realFinalName").innerHTML= `이브이`;
             document.getElementById("realFinalComment").innerHTML= `<fieldset id="resultComment">                
                                                                         <p>적합한 진화체를 찾지 못했습니다.<br>이 이브이는 지금 상태 그대로를 제일 마음에 들어하는 것 같네요.</p>
-                                                                    </fieldset>`;
+                                                                    </fieldset>`;                                                                    
         };
     }catch(err) {
         alert("오류가 발생했습니다. 기입한 정보가 잘못되지 않았는지 다시 확인해주세요.");
