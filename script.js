@@ -154,10 +154,12 @@ async function eevaluate() {
                         allAddGrade(-1);
                         allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.8;
                         allGrade[tierList.indexOf("espeon")]["espeon"] += 0.7;
+                        allGrade[tierList.indexOf("jolteon")]["jolteon"] += 0.1;
                     }else{
                         allAddGrade(-0.5);
                         allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.5;
                         allGrade[tierList.indexOf("espeon")]["espeon"] += 0.5;
+                        allGrade[tierList.indexOf("jolteon")]["jolteon"] += 0.1;
                     };
                 }else if(downNature === "식재료 도우미 확률 -"){
                     if(howSleep === "잔다"){
@@ -180,11 +182,9 @@ async function eevaluate() {
                         allGrade[tierList.indexOf("sylveon")]["sylveon"] += 1;
                         allGrade[tierList.indexOf("espeon")]["espeon"] += 0.8;
                     }else{
-                        allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.2;
-                        allGrade[tierList.indexOf("espeon")]["espeon"] += 0.2;
-                        allGrade[tierList.indexOf("umbreon")]["umbreon"] += 1;
-                        allGrade[tierList.indexOf("jolteon")]["jolteon"] += 1;
-                        allGrade[tierList.indexOf("vaporeon")]["vaporeon"] += 1;
+                        allAddGrade(1);
+                        allGrade[tierList.indexOf("sylveon")]["sylveon"] -= 0.8;
+                        allGrade[tierList.indexOf("espeon")]["espeon"] -= 0.8;
                     };
                 };
             }else if(upNature === "식재료 도우미 확률+"){
@@ -192,6 +192,7 @@ async function eevaluate() {
                     allAddGrade(-1);
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.7;
                     allGrade[tierList.indexOf("espeon")]["espeon"] += 0.7;
+                    allGrade[tierList.indexOf("jolteon")]["jolteon"] += 0.1;
                     allGrade[tierList.indexOf("ingUmbreon")]["ingUmbreon"] += 1.5;
                     allGrade[tierList.indexOf("ingJolteon")]["ingJolteon"] += 1.5;
                     allGrade[tierList.indexOf("ingVaporeon")]["ingVaporeon"] += 1.5;
@@ -200,6 +201,8 @@ async function eevaluate() {
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.8;
                     allGrade[tierList.indexOf("espeon")]["espeon"] += 0.7;
                     allGrade[tierList.indexOf("ingUmbreon")]["ingUmbreon"] += 2;
+                    allGrade[tierList.indexOf("ingJolteon")]["ingJolteon"] += 1.5;
+                    allGrade[tierList.indexOf("ingVaporeon")]["ingVaporeon"] += 1.5;
                 }else if(downNature === "EXP 획득량 -"){
                     allGrade[tierList.indexOf("ingUmbreon")]["ingUmbreon"] += 1;
                     allGrade[tierList.indexOf("ingJolteon")]["ingJolteon"] += 1;
@@ -208,6 +211,7 @@ async function eevaluate() {
             }else if(upNature === "메인 스킬 발동률+"){
                 if(downNature === "도우미 스피드 -"){
                     allAddGrade(1);
+                    allGrade[tierList.indexOf("jolteon")]["jolteon"] += 0.1;
                     allGrade[tierList.indexOf("umbreon")]["umbreon"] -= 2;
                 }else if(downNature === "기력 회복량 -"){
                     allAddGrade(1);
@@ -224,6 +228,7 @@ async function eevaluate() {
                     allAddGrade(-1);
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.7;
                     allGrade[tierList.indexOf("espeon")]["espeon"] += 0.7;
+                    allGrade[tierList.indexOf("jolteon")]["jolteon"] += 0.1;
                 }else if(downNature === "기력 회복량 -"){
                     allAddGrade(-1);
                     allGrade[tierList.indexOf("sylveon")]["sylveon"] += 0.8;
