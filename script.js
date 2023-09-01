@@ -317,9 +317,9 @@ async function eevaluate() {
         const umbreonCut= 0.5 + calcScore("umbreon", json["umbreon"]["tier2"][json["umbreon"]["tier2"].length - 1], json["umbreon"]["tier2"][json["umbreon"]["tier2"].length - 2]);
         const jolteonCut= 0.5 + calcScore("jolteon", json["jolteon"]["tier2"][json["jolteon"]["tier2"].length - 1], json["jolteon"]["tier2"][json["jolteon"]["tier2"].length - 2]);
         const vaporeonCut= 0.5 + calcScore("vaporeon", json["vaporeon"]["tier2"][json["vaporeon"]["tier2"].length - 1], json["vaporeon"]["tier2"][json["vaporeon"]["tier2"].length - 2]);
-        const ingUmbreonCut= 0.5 + calcScore("ingUmbreon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
-        const ingJolteonCut= 0.5 + calcScore("ingJolteon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
-        const ingVaporeonCut= 0.5 + calcScore("ingVaporeon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const ingUmbreonCut= 1 + calcScore("ingUmbreon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const ingJolteonCut= 1 + calcScore("ingJolteon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
+        const ingVaporeonCut= 1 + calcScore("ingVaporeon", "(청색)식재료 확률 업 M", "도우미 스피드 S", "(청색)최대 소지 수 업 L", "(금색)나무열매 수 S", "최대 소지 수 업 S");
         
         //커트라인, 최소최대 점수 저장용
         eeveeFilter= {
