@@ -31,3 +31,6 @@ v1.2.1
 
 v1.2.2
 - connect google analytics
+
+v1.2.3
+- 진화체 소개 일부 내용 수정
